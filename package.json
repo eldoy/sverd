@@ -1,0 +1,30 @@
+{
+  "name": "sverd",
+  "version": "0.1.0",
+  "description": "Deploy web apps",
+  "main": "index.js",
+  "bin": {
+    "sverd": "./bin/sverd.js"
+  },
+  "scripts": {
+    "test": "jest --watch",
+    "serve": "nodemon ./bin/sverd.js serve",
+    "build": "rm -rf ./dist && node ./bin/sverd.js build",
+    "help": "node ./bin/sverd.js help"
+  },
+  "author": "Vidar Eldøy <vidar@eldoy.com>",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fugroup/sverd"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "deploy",
+    "web app"
+  ],
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
