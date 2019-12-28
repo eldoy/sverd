@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "@vultr/vultr-node": "^0.1.2",
-    "conficurse": "^0.1.0",
     "shelljs": "^0.8.3"
   }
 }
