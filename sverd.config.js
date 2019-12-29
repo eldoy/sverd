@@ -1,3 +1,9 @@
 module.exports = {
-  key: 'your_provider_api_key'
+  api: 'VULTR_API_KEY',
+  label: 'test4',
+  os: 352,
+  region: 7,
+  plan: 201,
+  script: 659170,
+  ssh: '5ba4f7cab05d7'
 }
