@@ -1,0 +1,20 @@
+[Unit]
+Description=Waveorb server
+After=network.target
+
+[Service]
+User=root
+Environment=NODE_ENV=production
+Environment=WAVEORB_PORT=80
+WorkingDirectory=/root
+ExecStart=/usr/local/bin/waveorb serve
+
+[Install]
+WantedBy=multi-user.target
+
+
+# OS installation (Debian):
+# printf "[Unit]\nDescription=Waveorb server\nAfter=network.target\n\n[Service]\nUser=root\nEnvironment=NODE_ENV=production\nEnvironment=WAVEORB_PORT=80\nWorkingDirectory=/root\nExecStart=/usr/local/bin/waveorb serve\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
+# systemctl daemon-reload
+# systemctl enable waveorb@1
+# systemctl start waveorb@1

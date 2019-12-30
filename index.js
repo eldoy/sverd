@@ -59,12 +59,16 @@ async function createServer() {
 }
 
 module.exports = async function(args) {
+  // const os = await api.os.list()
+  // console.log(os)
   let server = await findServer({ label: config.label })
   if (!server) {
     server = await createServer()
   }
   if (server) {
-    console.log(`Server is ready: ${server.main_ip}:${server.default_password}`)
+    console.log(`Server is ready:`)
+    console.log(`${server.main_ip}:${server.default_password}`)
+
   } else {
     console.log('Server not found! Aborting.')
   }
