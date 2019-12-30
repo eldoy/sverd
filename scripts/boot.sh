@@ -1,11 +1,14 @@
 #!/bin/bash
 
 # Change the welcome message
-printf "... W A V E O R B ... \n" > /etc/motd
+printf "... W_A_V_E_O_R_B ... \n" > /etc/motd
 
 # Set environment
 echo "WAVEORB_PORT=80" >> /etc/environment
 echo "NODE_ENV=production" >> /etc/environment
+
+# Set swappiness
+sysctl vm.swappiness=10
 
 # Install packages
 until apt install -y nodejs npm; do sleep 1; done
