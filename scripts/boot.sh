@@ -14,7 +14,7 @@ echo "WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem" >> /etc/env
 sysctl vm.swappiness=10
 
 # Install packages
-until apt install -y nodejs npm zsh git ufw certbot; do sleep 1; done
+until apt install -y nodejs npm zsh git ufw certbot gnupg2; do sleep 1; done
 
 # Install zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --unattended"
@@ -35,12 +35,21 @@ certbot certonly --standalone --agree-tos --no-eff-email --email hello@waveorb.c
 # Update npm
 npm i npm@latest -g
 
+# Install mongodb
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/4.2 main" | sudo tee /etc/apt/sources.list.d/mongodb-org.list
+apt update
+apt -y install mongodb-org
+
+systemctl enable mongod
+systemctl start mongod
+
 # Install waveorb server
 curl -s https://raw.githubusercontent.com/fugroup/waveorb-bin/master/server-linux -o /root/server-linux
 chmod 755 /root/server-linux
 
 # Set up systemd worker
-printf "[Unit]\nDescription=Waveorb server\nAfter=network.target mongodb.service\nStartLimitInterval=0\n\n[Service]\nUser=root\nRestart=always\nRestartSec=10ms\nEnvironment=NODE_ENV=production\nEnvironment=WAVEORB_PORT=443\nEnvironment=WAVEORB_SSL_CERT=/etc/letsencrypt/live/waveorb.com/fullchain.pem\nEnvironment=WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem\nWorkingDirectory=/root\nExecStart=/usr/local/bin/waveorb serve\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
+printf "[Unit]\nDescription=Waveorb server\nAfter=network.target mongodb.service\nStartLimitInterval=0\n\n[Service]\nUser=root\nRestart=always\nRestartSec=10ms\nEnvironment=NODE_ENV=production\nEnvironment=WAVEORB_PORT=443\nEnvironment=WAVEORB_SSL_CERT=/etc/letsencrypt/live/waveorb.com/fullchain.pem\nEnvironment=WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem\nWorkingDirectory=/root\nExecStart=/root/server-linux\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
 
 # Start server
 systemctl daemon-reload
@@ -54,4 +63,4 @@ ufw default allow outgoing
 ufw allow 22
 # ufw allow 80
 ufw allow 443
-ufw enable
+ufw --force enable
