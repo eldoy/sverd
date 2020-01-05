@@ -1,20 +1,24 @@
 [Unit]
 Description=Waveorb server
-After=network.target
+After=network.target mongodb.service
+StartLimitInterval=0
 
 [Service]
 User=root
+Restart=always
+RestartSec=10ms
 Environment=NODE_ENV=production
-Environment=WAVEORB_PORT=80
+Environment=WAVEORB_PORT=443
+Environment=WAVEORB_SSL_CERT=/etc/letsencrypt/live/waveorb.com/fullchain.pem
+Environment=WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem
 WorkingDirectory=/root
 ExecStart=/usr/local/bin/waveorb serve
 
 [Install]
 WantedBy=multi-user.target
 
-
 # OS installation (Debian):
-# printf "[Unit]\nDescription=Waveorb server\nAfter=network.target\n\n[Service]\nUser=root\nEnvironment=NODE_ENV=production\nEnvironment=WAVEORB_PORT=80\nWorkingDirectory=/root\nExecStart=/usr/local/bin/waveorb serve\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
+# printf "[Unit]\nDescription=Waveorb server\nAfter=network.target mongodb.service\nStartLimitInterval=0\n\n[Service]\nUser=root\nRestart=always\nRestartSec=10ms\nEnvironment=NODE_ENV=production\nEnvironment=WAVEORB_PORT=443\nEnvironment=WAVEORB_SSL_CERT=/etc/letsencrypt/live/waveorb.com/fullchain.pem\nEnvironment=WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem\nWorkingDirectory=/root\nExecStart=/usr/local/bin/waveorb serve\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
 # systemctl daemon-reload
 # systemctl enable waveorb@1
 # systemctl start waveorb@1
