@@ -7,6 +7,7 @@ printf "... W_A_V_E_O_R_B ... \n" > /etc/motd
 echo "EDITOR=vim" >> /etc/environment
 echo "NODE_ENV=production" >> /etc/environment
 echo "WAVEORB_PORT=443" >> /etc/environment
+echo "WAVEORB_HOST=https://waveorb.com" >> /etc/environment
 echo "WAVEORB_SSL_CERT=/etc/letsencrypt/live/waveorb.com/fullchain.pem" >> /etc/environment
 echo "WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem" >> /etc/environment
 
