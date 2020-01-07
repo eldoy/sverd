@@ -4,6 +4,7 @@
 printf "... W_A_V_E_O_R_B ... \n" > /etc/motd
 
 # Set environment
+echo "LC_ALL=en_US.UTF-8" >> /etc/environment
 echo "EDITOR=vim" >> /etc/environment
 echo "NODE_ENV=production" >> /etc/environment
 echo "WAVEORB_PORT=443" >> /etc/environment
@@ -62,6 +63,6 @@ systemctl start waveorb@1
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow 22
-# ufw allow 80
+ufw allow 80
 ufw allow 443
 ufw --force enable
