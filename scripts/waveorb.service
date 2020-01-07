@@ -13,7 +13,8 @@ Environment=WAVEORB_HOST=https://waveorb.com
 Environment=WAVEORB_SSL_CERT=/etc/letsencrypt/live/waveorb.com/fullchain.pem
 Environment=WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem
 WorkingDirectory=/root
-ExecStart=/usr/local/bin/waveorb serve
+# ExecStart=/usr/local/bin/waveorb serve
+ExecStart=/root/server-linux
 
 [Install]
 WantedBy=multi-user.target
