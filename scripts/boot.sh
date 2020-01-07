@@ -51,7 +51,7 @@ curl -s https://raw.githubusercontent.com/fugroup/waveorb-bin/master/server-linu
 chmod 755 /root/server-linux
 
 # Set up systemd worker
-printf "[Unit]\nDescription=Waveorb server\nAfter=network.target mongodb.service\nStartLimitInterval=0\n\n[Service]\nUser=root\nRestart=always\nRestartSec=10ms\nEnvironment=NODE_ENV=production\nEnvironment=WAVEORB_PORT=443\nEnvironment=WAVEORB_SSL_CERT=/etc/letsencrypt/live/waveorb.com/fullchain.pem\nEnvironment=WAVEORB_SSL_KEY=/etc/letsencrypt/live/waveorb.com/privkey.pem\nWorkingDirectory=/root\nExecStart=/root/server-linux\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
+printf "[Unit]\nDescription=Waveorb server\nAfter=network.target mongodb.service\nStartLimitInterval=0\n\n[Service]\nUser=root\nRestart=always\nRestartSec=10ms\nEnvironment=NODE_ENV=production\nWorkingDirectory=/root\nExecStart=/root/server-linux\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
 
 # Start server
 systemctl daemon-reload
