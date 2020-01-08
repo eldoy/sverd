@@ -15,6 +15,7 @@ cp objs/*.so /etc/nginx/modules
 chmod 644 /etc/nginx/modules/*.so
 
 cd ~
+rm -rf ~/nginx-brotli
 rm -rf ~/nginx-1.17.7
 
 # Install nginx package

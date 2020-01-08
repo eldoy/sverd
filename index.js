@@ -70,13 +70,11 @@ module.exports = async function(args) {
     console.log(`IP address: ${server.main_ip}`)
     console.log(`Password: ${server.default_password}`)
     console.log(`Point your domain name to ${server.main_ip}`)
-    console.log('Press any key to continue...')
-    await new Promise(r => { process.stdin.once('data', r) })
 
-    sh.exec(`scp -rp ./scripts/boot.sh root@${server.main_ip}:/`)
-    sh.exec(`ssh root@${server.main_ip} /boot.sh`)
+    // TODO: Move this to install script
+    // sh.exec(`scp -rp ./scripts/boot.sh root@${server.main_ip}:/root`)
+    // sh.exec(`ssh root@${server.main_ip} /root/boot.sh`)
 
-    process.exit(1)
   } else {
     console.log('Server not found! Aborting.')
   }
