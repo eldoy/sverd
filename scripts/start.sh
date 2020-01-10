@@ -3,12 +3,12 @@ systemctl daemon-reload
 
 # Start mongodb
 systemctl enable mongod
-systemctl start mongod
+systemctl restart mongod
 
 # Start waveorb
 systemctl enable waveorb@1
-systemctl start waveorb@1
+systemctl restart waveorb@1
 
 # Start nginx
 systemctl enable nginx
-systemctl start nginx
+systemctl restart nginx
