@@ -13,7 +13,7 @@ wget https://nginx.org/download/nginx-1.17.7.tar.gz
 tar zxvf nginx-1.17.7.tar.gz
 rm nginx-1.17.7.tar.gz
 
-until apt -y install git; do sleep 1; done
+until apt install -y git; do sleep 1; done
 
 git clone https://github.com/google/ngx_brotli.git
 cd ngx_brotli && git submodule update --init && cd ~

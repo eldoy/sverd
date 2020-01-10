@@ -1,5 +1,5 @@
 # Set up SSL certificate with Let's Encrypt
-apt install -y certbot
+until apt install -y certbot; do sleep 1; done
 certbot certonly --standalone --agree-tos --no-eff-email --email hello@waveorb.com -d waveorb.com -d www.waveorb.com
 # certbot renew
 # /etc/letsencrypt/live/waveorb.com/fullchain.pem

@@ -1,0 +1,1 @@
+until apt update && apt upgrade -y; do sleep 1; done
