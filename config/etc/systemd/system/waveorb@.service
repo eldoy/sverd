@@ -18,9 +18,3 @@ ExecStart=/var/www/server-linux
 
 [Install]
 WantedBy=multi-user.target
-
-# OS installation (Debian):
-# printf "[Unit]\nDescription=Waveorb server\nAfter=network.target mongodb.service\nStartLimitInterval=0\n\n[Service]\nUser=root\nRestart=always\nRestartSec=10ms\nEnvironment=NODE_ENV=production\nWorkingDirectory=/var/www\nExecStart=/var/www/server-linux\n\n[Install]\nWantedBy=multi-user.target\n" >> /etc/systemd/system/waveorb@.service
-# systemctl daemon-reload
-# systemctl enable waveorb@1
-# systemctl start waveorb@1
