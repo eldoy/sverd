@@ -1,1 +1,1 @@
-systemctl restart waveorb@1
+systemctl restart appserver@1

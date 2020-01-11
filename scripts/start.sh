@@ -6,8 +6,8 @@ systemctl enable mongod
 systemctl restart mongod
 
 # Start waveorb
-systemctl enable waveorb@1
-systemctl restart waveorb@1
+systemctl enable appserver@1
+systemctl restart appserver@1
 
 # Start nginx
 systemctl enable nginx
