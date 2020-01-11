@@ -1,5 +1,5 @@
 #!/bin/bash
-until apt install -y build-essential; do sleep 1; done
+until apt install -y build-essential rsync; do sleep 1; done
 
 # Change the welcome message
 printf "... WAVEORB ... \n" > /etc/motd
