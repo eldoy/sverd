@@ -1,9 +1,10 @@
 # Set up SSL certificate with Let's Encrypt
 email=$1
-domains=$2
+shift
+domains=$*
 until apt install -y certbot; do sleep 1; done
 
-certbot certonly --standalone --agree-tos --no-eff-email --email $email "$domains"
+certbot certonly --standalone --agree-tos --no-eff-email --email $email $domains
 
 # Certificates are stored here:
 # /etc/letsencrypt/live/waveorb.com/fullchain.pem

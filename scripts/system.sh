@@ -9,6 +9,11 @@ echo "LC_ALL=en_US.UTF-8" >> /etc/environment
 echo "EDITOR=vim" >> /etc/environment
 echo "NODE_ENV=production" >> /etc/environment
 
+# Set hostname
+echo "Setting hostname to $1"
+echo $1 > /etc/hostname
+hostnamectl set-hostname $1
+
 # Set swappiness
 sysctl vm.swappiness=10
 
