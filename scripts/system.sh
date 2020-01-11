@@ -1,4 +1,4 @@
-#!/bin/bash
+# Install system essentials
 until apt install -y build-essential rsync; do sleep 1; done
 
 # Change the welcome message
