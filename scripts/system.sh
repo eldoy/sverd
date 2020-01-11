@@ -2,7 +2,7 @@
 until apt install -y build-essential rsync; do sleep 1; done
 
 # Change the welcome message
-printf "... WAVEORB ... \n" > /etc/motd
+printf "¯\_(ツ)_/¯\n" > /etc/motd
 
 # Set environment
 echo "LC_ALL=en_US.UTF-8" >> /etc/environment
