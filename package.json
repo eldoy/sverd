@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@vultr/vultr-node": "^0.1.2",
+    "lodash": "^4.17.15",
     "shelljs": "^0.8.3"
   }
 }
