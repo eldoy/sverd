@@ -1,0 +1,1 @@
+until dig +short $1 | grep -q $2; do sleep 1; done
