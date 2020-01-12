@@ -36,8 +36,8 @@ Finally, replace `api` in the config file with your Vultr API key.
 ### Usage
 After running the `create` script, the IP address of your server will be stored in your `sverd.json` config file.
 ```bash
-# Create server on Vultr
-sverd create
+# Boot server on Vultr
+sverd boot
 
 # Install software
 sverd install
