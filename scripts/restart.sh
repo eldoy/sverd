@@ -1,1 +1,1 @@
-systemctl restart appserver@1
+systemctl restart $1@1
