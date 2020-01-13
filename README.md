@@ -12,8 +12,8 @@ Finally, replace `api` in the config file with your Vultr API key.
 ```javascript
 {
   "domain": "waveorb.com",
-  "label": "app1",
-  "hostname": "app1",
+  "label": "waveorb",
+  "hostname": "waveorb",
   "api": "VULTR_API_KEY",
   "os": 352,
   "region": 7,
