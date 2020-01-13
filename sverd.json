@@ -1,9 +1,21 @@
 {
   "domain": "waveorb.com",
-  "api": "VULTR_API_KEY",
   "label": "waveorb",
+  "hostname": "waveorb",
+  "api": "VULTR_API_KEY",
   "os": 352,
   "region": 7,
   "plan": 201,
-  "ssh": "5ba4f7cab05d7"
+  "ssh": "5ba4f7cab05d7",
+  "env": {
+    "names": "waveorb.com www.waveorb.com",
+    "exec": "/var/www/server-linux",
+    "cert": "/etc/letsencrypt/live/waveorb.com/fullchain.pem",
+    "key": "/etc/letsencrypt/live/waveorb.com/privkey.pem",
+    "email": "hello@waveorb.com",
+    "domains": [
+      "waveorb.com",
+      "www.waveorb.com"
+    ]
+  }
 }
