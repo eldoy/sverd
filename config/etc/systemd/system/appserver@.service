@@ -1,7 +1,7 @@
 # /etc/systemd/system/appserver@.service
 
 [Unit]
-Description=App server
+Description=__description
 After=network.target mongodb.service
 StartLimitInterval=0
 
@@ -10,8 +10,8 @@ User=root
 Restart=always
 RestartSec=10ms
 Environment=NODE_ENV=production
-WorkingDirectory=/var/www
-ExecStart=__exec
+WorkingDirectory=__dir
+ExecStart=__dir/__exec
 
 [Install]
 WantedBy=multi-user.target
