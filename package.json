@@ -1,6 +1,6 @@
 {
   "name": "sverd",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Deploy waveorb apps",
   "main": "index.js",
   "bin": {
