@@ -1,6 +1,6 @@
 {
   "name": "sverd",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Deploy waveorb apps",
   "main": "index.js",
   "bin": {
@@ -30,6 +30,7 @@
   "dependencies": {
     "@vultr/vultr-node": "^0.1.2",
     "lodash": "^4.17.15",
-    "shelljs": "^0.8.3"
+    "shelljs": "^0.8.3",
+    "terminal-kit": "^1.32.3"
   }
 }
