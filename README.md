@@ -27,6 +27,7 @@ Finally, replace `api` in the config file with your Vultr API key.
   "port": 4000,
   "cert": "/etc/letsencrypt/live/waveorb.com/fullchain.pem",
   "key": "/etc/letsencrypt/live/waveorb.com/privkey.pem",
+  "certopt": "--dry-run",
   "email": "hello@waveorb.com",
   "domains": [
     "waveorb.com",
