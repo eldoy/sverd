@@ -1,5 +1,8 @@
-# Install system essentials
-until apt install -y build-essential rsync; do sleep 1; done
+# Install packages
+until apt install -y build-essential rsync certbot ufw gnupg2 nodejs npm git zsh; do sleep 1; done
+
+# Update npm
+npm i npm@latest -g
 
 # Change the welcome message
 printf "ᚠᚢᚦᚬᚱᚴᚼᚾᛁᛅᛦᛋᛏᛒᛘᛚ\n" > /etc/motd

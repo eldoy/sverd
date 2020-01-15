@@ -10,5 +10,4 @@ systemctl enable $1@1
 systemctl restart $1@1
 
 # Start nginx
-systemctl enable nginx
 systemctl restart nginx

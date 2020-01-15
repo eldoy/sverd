@@ -1,5 +1,4 @@
 # Set up firewall
-until apt install -y ufw; do sleep 1; done
 ufw default deny incoming
 ufw default allow outgoing
 ufw allow 22
