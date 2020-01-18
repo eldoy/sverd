@@ -1,7 +1,7 @@
 {
   "name": "sverd",
-  "version": "0.3.0",
-  "description": "Deploy waveorb apps",
+  "version": "0.4.0",
+  "description": "Deploy web apps",
   "main": "index.js",
   "bin": {
     "sverd": "./bin/sverd.js"
