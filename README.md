@@ -53,4 +53,4 @@ sverd update
 sverd deploy
 ```
 
-ISC licensed. Enjoy!
+MIT licensed. Enjoy!
